@@ -1,7 +1,8 @@
 ico.js
 
-Licensed under an MIT license (see LICENSE)
+Copyright (c) 2012 Jeremy Wang
+Available under an MIT License (see LICENSE)
 
-Author: Jeremy Wang, 2013
+github.com/txje/ico-js
 
 Define custom inline icons and graphics using vectors (SVG path descriptions), and include them using CSS.
