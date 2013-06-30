@@ -23,7 +23,7 @@ var svgPoint = function(x, y) {
     }
 }
 
-var svgpath = function(d) {
+var svgpath = function(d, scale) {
     this.compressSpaces = function(s) { return s.replace(/[\s\r\t\n]+/gm,' '); };
     this.trim = function(s) { return s.replace(/^\s+|\s+$/g, ''); };
 
@@ -86,7 +86,7 @@ var svgpath = function(d) {
         }
       
         this.getScalar = function() {
-            return parseFloat(this.getToken());
+            return parseFloat(this.getToken()) * scale;
         }
       
         this.nextCommand = function() {

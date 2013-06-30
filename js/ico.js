@@ -17,16 +17,21 @@ function IconGenerator() {
         ctx.lineWidth = 0;
         for(var command in ico) {
             if(command == "lineWidth") {
-                ctx.lineWidth = ico[command];
+                ctx.lineWidth = ico["lineWidth"];
             }
             else if(command == "lineColor") {
-                ctx.strokeStyle = ico[command];
+                ctx.strokeStyle = ico["lineColor"];
             }
             else if(command == "fillColor") {
-                ctx.fillStyle = ico[command];
+                ctx.fillStyle = ico["fillColor"];
             }
             else if(command == "path") {
-                var sp = new svgpath(ico[command]);
+                var svg = ico["path"]["svg"];
+                var original_width = ico["path"]["width"];
+                var original_height = ico["path"]["height"];
+                // do not skew image if dimensions don't agree
+                var scale = Math.min(ico.width/original_width, ico.height/original_height);
+                var sp = new svgpath(svg, scale);
                 sp.draw(ctx);
             }
         }
